@@ -6,7 +6,7 @@
  */
 int main(void)
 {
-	char varS[] = "and that piece of art is usful\" - Dora Korpar, 2015-10-19\n";
+	char varS[] = "and that piece of art is useful\" - Dora Korpar, 2015-10-19\n";
 
 	write(2, varS, 59);
 	return (1);
