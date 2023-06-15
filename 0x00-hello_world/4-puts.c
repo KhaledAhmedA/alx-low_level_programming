@@ -2,7 +2,7 @@
 /**
  * main - Entry point
  * print exact string
- * Return alwyes 0 (Sucess)
+ * Return: always 0 (Sucess)
  */
 int main(void)
 {
