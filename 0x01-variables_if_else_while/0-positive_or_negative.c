@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <time.h>
 /* more headers goes there */
+#include <stdio.h>
 /**
  * main - Entry point
  * function to return kind of num if neg or pos or zero
@@ -16,7 +17,7 @@ int main(void)
 	/* your code goes there */
 	if (n > 0)
 		printf("%d is positive\n", n);
-	if else(n < 0)
+	else if(n < 0)
 		printf("%d is negative\n", n);
 	else
 		printf("%d is zero\n", n);
