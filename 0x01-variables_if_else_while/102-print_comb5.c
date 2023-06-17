@@ -20,7 +20,7 @@ while (z < 58)
 			while (w < 58)
 			{
 				dg1 = (z * 10) + y;
-				gd2 = (x * 10) + w;
+				dg2 = (x * 10) + w;
 				if (dg1 < dg2)
 				{
 					putchar(z);
