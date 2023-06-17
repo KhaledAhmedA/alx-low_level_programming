@@ -19,8 +19,8 @@ while (z < 58)
 			w = 48;
 			while (w < 58)
 			{
-				dg1 = (h * 10) + g;
-				gd2 = (e * 10) + i;
+				dg1 = (z * 10) + y;
+				gd2 = (x * 10) + w;
 				if (dg1 < dg2)
 				{
 					putchar(z);
