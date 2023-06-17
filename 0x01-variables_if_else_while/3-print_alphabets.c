@@ -15,7 +15,7 @@ int main(void)
 		lalpha++;
 	}
 
-	while (ualpha < 'Z')
+	while (ualpha <= 'Z')
 	{
 		putchar(ualpha);
 		ualpha++;
