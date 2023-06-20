@@ -6,7 +6,11 @@
 */
 int main(void)
 {
-	printf("_putchar\n");
+	char arrChar[] = ("_putchar");
+	int ch;
+
+	for (ch = 0; ch < 8; ch++)
+		_putchar(arrChar[ch]);
 
 	return (0);
 
