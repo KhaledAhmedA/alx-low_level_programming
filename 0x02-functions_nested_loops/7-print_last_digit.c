@@ -1,4 +1,4 @@
-#include "main.c"
+#include "main.h"
 /**
  * print_last_digit - function returns last digit
  * @i: argument of function, @n: variable store remainder value
