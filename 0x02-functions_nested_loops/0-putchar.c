@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include "main.h"
 /**
  * main - Entry point
  * print _putchar
@@ -6,7 +6,7 @@
 */
 int main(void)
 {
-	char arrChar[] = ("_putchar");
+	char arrChar[] = {"_putchar"};
 	int ch;
 
 	for (ch = 0; ch < 8; ch++)
