@@ -1,22 +1,21 @@
 #include "main.h"
 /**
  * jack_bauer - a function return time 24 hour
- * @hour: variable for carry hourse - @mins: variable carry minutes
  * Return: Always 0 (Sucess)
 */
 void jack_bauer(void)
 {
-	int hour, mins;
+	int min, hu;
 
-	for (hour = 0; hour <= 23; hour++)
+	for (hu = 0; hu <= 23; hu++)
 	{
-		for (mins = 0; mins <= 59; mins++)
+		for (min = 0; min <= 59; min++)
 		{
-			_putchar((hour / 10) + '0');
-			_putchar((hour % 10) + '0');
+			_putchar((hu / 10) + '0');
+			_putchar((hu % 10) + '0');
 			_putchar(':');
-			_putchar((mins / 10) + '0');
-			_putchar((mins % 10) + '0');
+			_putchar((min / 10) + '0');
+			_putchar((min % 10) + '0');
 				_putchar('\n');
 		}
 	}
