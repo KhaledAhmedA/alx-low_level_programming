@@ -4,7 +4,10 @@
  * print _putchar
  * Return: Always 0 (Sucess)
 */
-void main(void)
+int main(void)
 {
 	printf("_putchar\n");
+
+	return (0);
+
 }
