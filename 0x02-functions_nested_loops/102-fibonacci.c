@@ -8,8 +8,8 @@ int main(void)
 	int dist;
 	long int num1, num2, box;
 
-	num1 = 1;
-	num2 = 2;
+	num1 = 0;
+	num2 = 1;
 
 	for (dist = 0; dist < 50; dist++)
 	{
