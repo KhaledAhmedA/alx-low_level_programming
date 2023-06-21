@@ -10,7 +10,7 @@ int main(void)
 
 	num1 = 0;
 	num2 = 1;
-	log1 = log2 = 1;
+	log1 = log2 = 0;
 	for (i = 1; i <= 98; i++)
 	{
 		if (log1)
