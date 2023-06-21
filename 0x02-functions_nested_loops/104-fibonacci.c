@@ -24,20 +24,20 @@ int main(void)
 		{
 			if (log2)
 			{
-				ln1 = num1 % 1000000000;
-				ln2 = num2 % 1000000000;
-				num1 = num1 / 1000000000;
-				num2 = num2 / 1000000000;
+				ln1 = num1 % 100000000;
+				ln2 = num2 % 100000000;
+				num1 = num1 / 100000000;
+				num2 = num2 / 100000000;
 				log2 = 0;
 			}
 			box2 = (ln1 + ln2);
-			box1 = num1 + num2 + (box2 / 1000000000);
+			box1 = num1 + num2 + (box2 / 100000000);
 			printf(", %ld", box1);
-			printf("%ld", box2 % 1000000000);
+			printf("%ld", box2 % 100000000);
 			num1 = num2;
 			ln1 = ln2;
 			num2 = box1;
-			ln2 = (box2 % 1000000000);
+			ln2 = (box2 % 100000000);
 		}
 		if (((num1 + num2) < 0) && log1 == 1)
 			log1 = 0;
