@@ -9,14 +9,18 @@ void times_table(void)
 
 	for (i = 0; i <= 9; i++)
 	{
-		printf("\n");
-		for (j = 0; j <= 9; j++)
+		_putchar('48');
+		for (j = 1; j <= 9; j++)
 		{
+			_putchar(',');
+			_putchar(' ');
 			total = i * j;
 			if (total <= 9)
-				printf("%d,  ", total);
+				_putchar(' ');
 			else
-				printf("%d, ", total);
+				_putchar((total / 10) + 48);
+			_putchar((total % 10) + 48);
 		}
+		_putchar('\n');
 	}
 }
