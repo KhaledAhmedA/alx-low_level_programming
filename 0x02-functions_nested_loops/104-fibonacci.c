@@ -8,9 +8,10 @@ int main(void)
 	int i, log1, log2;
 	long int num1, num2, box1, box2, ln1, ln2;
 
-	num1 = 0;
-	num2 = 1;
-	log1 = log2 = 0;
+	num1 = 1;
+	num2 = 2;
+	log1 = 0;
+	log2 = 0;
 	for (i = 1; i <= 98; i++)
 	{
 		if (log1)
