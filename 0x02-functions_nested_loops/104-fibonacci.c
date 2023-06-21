@@ -16,7 +16,7 @@ int main(void)
 		if (log1)
 		{
 			box1 = num1 + num2;
-			printf(", %ld", box1);
+			printf("%ld, ", box1);
 			num1 = num2;
 			num2 = box1;
 		}
