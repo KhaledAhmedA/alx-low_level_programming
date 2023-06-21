@@ -32,7 +32,7 @@ int main(void)
 			}
 			box2 = (ln1 + ln2);
 			box1 = num1 + num2 + (box2 / 1000000000);
-			printf("%ld ,", box1);
+			printf(", %ld", box1);
 			printf("%ld", box2 % 1000000000);
 			num1 = num2;
 			ln1 = ln2;
