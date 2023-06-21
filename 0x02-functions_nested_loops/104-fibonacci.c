@@ -11,7 +11,7 @@ int main(void)
 	num1 = 1;
 	num2 = 2;
 	log1 = log2 = 1;
-	for (i = 0; i < 89; i++)
+	for (i = 0; i < 98; i++)
 	{
 		if (log1)
 		{
