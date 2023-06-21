@@ -33,7 +33,7 @@ int main(void)
 	ln2 = 0;
 	box2 = 0;
 
-	for (i = 1; 1 <= 98; i++)
+	for (i = 1; i <= 98; i++)
 	{
 		if (ln1 > 0)
 			printf("%lu", ln1);
