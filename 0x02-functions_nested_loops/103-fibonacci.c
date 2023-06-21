@@ -10,7 +10,7 @@ int main(void)
 	num1 = 0;
 	num2 = 1;
 
-	while (true)
+	while (1)
 	{
 		box = num1 + num2;
 		if (box > 4000000)
