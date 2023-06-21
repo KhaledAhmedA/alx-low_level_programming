@@ -22,7 +22,7 @@ int main(void)
 		if (dist == 49)
 			printf("\n");
 		else
-			printf("\n");
+			printf(", ");
 	}
 	return (0);
 }
