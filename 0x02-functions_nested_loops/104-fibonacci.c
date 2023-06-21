@@ -8,8 +8,8 @@ int calclength(int num)
 {
 	int l = 0;
 
-	if (!l)
-		return (l);
+	if (!num)
+		return (1);
 	while (num)
 	{
 		num = num / 10;
