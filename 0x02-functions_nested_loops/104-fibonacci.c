@@ -1,9 +1,9 @@
 #include <stdio.h>
 /**
- * calcfibo - calculate given number by fibonacci
+ * main - Entry point
  * Return: Always 0 (Sucess)
 */
-int calcfibo(void)
+int main(void)
 {
 	int i, log1, log2;
 	long int num1, num2, box1, box2, ln1, ln2;
