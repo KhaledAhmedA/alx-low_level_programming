@@ -38,7 +38,7 @@ int main(void)
 		if (ln1 > 0)
 			printf("%lu", ln1);
 		init = calclength(div) - 1 - calclength(num1);
-		while (ln1  > 0; init > 0)
+		while (ln1 > 0 && init > 0)
 		{
 			printf("%d", 0);
 			init--;
