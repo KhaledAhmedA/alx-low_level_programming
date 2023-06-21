@@ -27,7 +27,7 @@ int calcfibo(void)
 				ln1 = num1 % 1000000000;
 				ln2 = num2 % 1000000000;
 				num1 = num1 / 1000000000;
-				num2 = num2 / 1000000000'
+				num2 = num2 / 1000000000;
 				log2 = 0;
 			}
 			box2 = (ln1 + ln2);
