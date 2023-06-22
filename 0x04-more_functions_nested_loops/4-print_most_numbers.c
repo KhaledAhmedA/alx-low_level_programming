@@ -1,9 +1,7 @@
 #include "main.h"
 /**
  * print_most_numbers - function print numbers
- * 	from 0 to 9 except 2 and 4
- * 	only _ptchar twice
- * @i: argument of function
+ * from 0 to 9 except 2 and 4
  * Return: Always 0 (Sucess)
 */
 void print_most_numbers(void)
