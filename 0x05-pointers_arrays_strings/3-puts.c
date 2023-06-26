@@ -1,6 +1,7 @@
 #include "main.h"
 /**
  * _puts - function print given string
+ * @str: argument of function
  * Return: not return value
 */
 void _puts(char *str)
