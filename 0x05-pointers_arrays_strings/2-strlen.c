@@ -1,7 +1,8 @@
 #include "main.h"
 /**
  * _strlen - function count given string
- * Return: Always 0 (Sucess)
+ * @s: function argument
+ * Return: number of given string
 */
 int _strlen(char *s)
 {
