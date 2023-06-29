@@ -14,11 +14,12 @@ char *_strcat(char *dest, char *src)
 
 	while (*(dest + dcount) != '\0')
 		dcount++;
-	for (scount; scount >= 0; dcount++)
+	while (scount >= 0)
 	{
 		*(dest + dcount) = *(src + scount)
 			if (*(src + scount) == '\0')
 				break;
+		dcount++;
 		scount++;
 	}
 	return (dest);
