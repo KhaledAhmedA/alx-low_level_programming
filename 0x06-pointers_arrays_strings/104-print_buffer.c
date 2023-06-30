@@ -1,77 +1,48 @@
 #include "main.h"
 /**
- * ifascii - a function checking if printable as ascii
- * @n: arument
- * Return: 1 if true, 0 if false
-*/
-int ifascii(int n)
-{
-	return (n >= 32 && n <= 126);
-}
+ * print_buffer - prints buffer
+ * @b: buffer
+ * @size: size
+ * Return: void
+ */
 
-/**
- * hexa - a function that print hex value of given string
- * @b: string
- * @f: start pos
- * @l: last pos
-*/
-void hexa(char *b, int f, int l)
-{
-	int i = 0;
-
-	while (i < 10)
-	{
-		if (i < l)
-			printf("%02x", *(b + f + i));
-		else
-			printf("  ");
-		if (i % 2)
-			printf(" ");
-		i++;
-	}
-}
-
-/**
- * giveascii - a function print ascii value of a string
- * @b: string
- * @f: starting pos
- * @l: last pos
-*/
-void giveascii(char *b, int f, int l)
-{
-	int ch, i;
-
-	i = 0;
-	while (i < l)
-	{
-		ch = *(b + i + f);
-		if (!ifascii(ch))
-			ch = 46;
-		printf("%c", ch);
-		i++;
-	}
-}
-
-/**
- * print_buffer - a function print a buffer given
- * @b: given string
- * @size: buffer size
-*/
 void print_buffer(char *b, int size)
 {
-	int f, l;
+	int o, j, i;
 
-	if (size > 0)
+	o = 0;
+
+	if (size <= 0)
 	{
-		for (f = 0; f < size; f += 10)
-		{
-			l = (size - f < 10) ? size - f : 10;
-			printf("%08x: ", f);
-			hexa(b, f, l);
-			giveascii(b, f, l);
-			printf("\n");
-		}
-	}
-	else
 		printf("\n");
+		return;
+	}
+	while (o < size)
+	{
+		j = size - o < 10 ? size - o : 10;
+		printf("%08x: ", o);
+		for (i = 0; i < 10; i++)
+		{
+			if (i < j)
+				printf("%02x", *(b + o + i));
+			else
+				printf("  ");
+			if (i % 2)
+			{
+				printf(" ");
+			}
+		}
+		for (i = 0; i < j; i++)
+		{
+			int c = *(b + o + i);
+
+			if (c < 32 || c > 132)
+			{
+				c = '.';
+			}
+			printf("%c", c);
+		}
+		printf("\n");
+		o += 10;
+	}
 }
