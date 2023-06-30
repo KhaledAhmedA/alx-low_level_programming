@@ -1,17 +1,17 @@
 #include "main.h"
 /**
  * string_toupper - a function convert lower to upper
- * @ch: given char
+ * @str: argument given char
  * Return: ch in uppercase
 */
-char *string_toupper(char *ch)
+char *string_toupper(char *str)
 {
-	int i;
+	int n;
 
-	for (i = 0; i ch[i] != '\0'; i++)
+	for (n = 0; str[n] != '\0'; n++)
 	{
-		if (ch[i] >= 97 && ch[i] <= 122)
-			ch[i] = ch[i] - 32;
+		if (str[n] >= 97 && str[n] <= 122)
+			str[n] = str[n] - 32;
 	}
-	return (ch);
+	return (str);
 }
