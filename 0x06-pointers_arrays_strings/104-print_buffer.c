@@ -1,41 +1,78 @@
 #include "main.h"
 /**
- * print_buffer - a function return buffer
- * @b: buffer
+ * ifascii - a function checking if printable as ascii
+ * @n: arument
+ * Return: 1 if true, 0 if false
+*/
+int ifascii(int n)
+{
+	return (n >= 32 && n <= 126);
+}
+
+/**
+ * hexa - a function that print hex value of given string
+ * @b: string
+ * @f: start pos
+ * @l: last pos
+*/
+void hexa(char *b, int f, int l)
+{
+	int i = 0;
+
+	while (i < 10)
+	{
+		if (i < l)
+			printf("%02x", *(b + f + i));
+		else
+			printf("  ");
+		if (i % 2)
+			printf(" ");
+		i++;
+	}
+}
+
+/**
+ * giveascii - a function print ascii value of a string
+ * @b: string
+ * @f: starting pos
+ * @l: last pos
+*/
+void giveascii(char *b, int f, int l)
+{
+	int ch, i;
+
+	i = 0;
+	while (i < l)
+	{
+		ch = *(b + i + f);
+		if (!ifascii(ch))
+			ch = 46;
+		printf("%c", ch);
+		i++;
+	}
+}
+
+/**
+ * print_buffer - a function print a buffer given
+ * @b: given string
  * @size: buffer size
- * Return: no retuen
 */
 void print_buffer(char *b, int size)
 {
-	int j, k, l;
+	int f, l;
 
-	if (size <= 0)
-		printf("\n");
-	else
+	if (size > 0)
 	{
-		for (j = 0; j < size; j += 10)
+		for (f = 0; f < size; f += 10)
 		{
-			printf("%.8x:", j);
-			for (k = j; k < j + 10; k++)
-			{
-				if (k % 2 == 0)
-					printf(" ");
-				if (k < size)
-					printf("%.2x", *(b + k));
-				else
-					printf("  ");
-			}
-			printf(" ");
-			for (l = j; l < j + 10; l++)
-			{
-				if (l >= size)
-					break;
-				if (*(b + l) < 32 || *(b + l) > 126)
-					printf("%c", '.');
-				else
-					printf("%c", *(b + l));
-			}
+			l = (size - f < 10) ? size - f : 10;
+			printf("%08x: ", f);
+			hexa(b, f, l);
+			giveascii(b, f, l);
 			printf("\n");
 		}
 	}
+	else
+		printf("\n");
 }
+
