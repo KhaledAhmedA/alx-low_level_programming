@@ -3,7 +3,7 @@
  * print_buffer - a function return buffer
  * @b: buffer
  * @size: buffer size
- * Return: return no value
+ * Return: no retuen
 */
 void print_buffer(char *b, int size)
 {
