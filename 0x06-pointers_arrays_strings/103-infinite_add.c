@@ -32,7 +32,7 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 		else
 			zero = 0;
 		if (si > 0)
-		*(r + di) = (op % 10) + 48;
+		*(r + di) = (si % 10) + 48;
 		else
 			*(r + di) = '0';
 		if (i > 0)
