@@ -1,10 +1,10 @@
 #include "main.h"
 /**
- * _strncpy - function copies string
+ * _strncpy - a function that copy string
  * @dest: destnation
  * @src: source
  * @n: by bytes
- * Returns: var dest
+ * Return: @dest
 */
 char *_strncpy(char *dest, char *src, int n)
 {
