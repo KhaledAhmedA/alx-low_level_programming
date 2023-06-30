@@ -13,7 +13,7 @@ char *rot13(char *ch)
 
 	while (*ch)
 	{
-		for (i = 0, i < 52; i++)
+		for (i = 0, i <= 52; i++)
 		{
 			if (*ch == rot[i])
 			{
