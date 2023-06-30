@@ -1,27 +1,27 @@
 #include "main.h"
 /**
  * rot13 - a function exchange pattern
- * @ch: function argument
+ * @s: function argument
  * Return: exchanged value
 */
-char *rot13(char *ch)
+char *rot13(char *s)
 {
 	int i;
 	char rot[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	char val[] = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
-	char *p = ch;
+	char *p = s;
 
-	while (*ch)
+	while (*s)
 	{
 		for (i = 0, i <= 52; i++)
 		{
-			if (*ch == rot[i])
+			if (*s == rot[i])
 			{
-				*ch = val[i];
+				*s = val[i];
 				break;
 			}
 		}
-		ch++;
+		s++;
 	}
 	return (p);
 }
