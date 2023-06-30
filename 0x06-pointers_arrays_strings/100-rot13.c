@@ -2,7 +2,7 @@
 /**
  * rot13 - a function exchange pattern
  * @ch: function argument
- * Return: p exchanged value
+ * Return: exchanged value
 */
 char *rot13(char *ch)
 {
