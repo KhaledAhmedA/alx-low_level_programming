@@ -13,6 +13,9 @@ char *rot13(char *s);
 int _putchar(char ch);
 void print_number(int n);
 char *infinite_add(char *n1, char *n2, char *r, int size_r);
+int ifascii(int n);
+void hexa(char *b, int f, int l);
+void giveascii(char *b, int f, int l);
 void print_buffer(char *b, int size);
 
 #endif
