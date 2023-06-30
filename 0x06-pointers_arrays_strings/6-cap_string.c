@@ -2,7 +2,7 @@
 /**
  * cap_string - a function capitalize every word
  * @str: argument
- * Return: @str
+ * Return: str
 */
 char *cap_string(char *str)
 {
@@ -27,3 +27,4 @@ char *cap_string(char *str)
 		c++;
 	}
 	return (str);
+}
