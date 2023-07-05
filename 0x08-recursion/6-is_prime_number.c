@@ -25,7 +25,7 @@ int is_prime_number(int n)
  */
 int if_prime(unsigned int num, unsigned int cons)
 {
-	if (num / cons == 0)
+	if (num % cons == 0)
 	{
 		if (num == cons)
 			return (1);
