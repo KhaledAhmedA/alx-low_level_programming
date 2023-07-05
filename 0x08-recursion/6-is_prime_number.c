@@ -32,5 +32,5 @@ int if_prime(unsigned int num, unsigned int cons)
 		else
 			return (0);
 	}
-	return (0 + if_prime(num, cons));
+	return (0 + if_prime(num, cons + 1));
 }
