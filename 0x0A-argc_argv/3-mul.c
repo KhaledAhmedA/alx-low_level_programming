@@ -7,14 +7,12 @@
 */
 int main(int argc, char *argv[])
 {
-	int result = 0;
-
 	if (argc != 3)
 	{
 		printf("Error\n");
 		return (1);
 	}
-	result = atoi(argv[i]) * atoi(argv[2]);
-	printf("%d\n", result);
+	printf("%d\n", atoi(argv[i]) * atoi(argv[2]);
+
 	return (0);
 }
