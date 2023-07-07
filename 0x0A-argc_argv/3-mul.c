@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <stdlib.h>
+
 /**
  * main - function print mul of two argu after prog name
  * @argc: num of arguments
