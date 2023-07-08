@@ -12,6 +12,7 @@ int main(int argc, char **argv)
 	int result;
 	char *arv;
 
+	result = 0;
 	while (--argc)
 	{
 		for (arv = argv[argc]; *arv; arv++)
