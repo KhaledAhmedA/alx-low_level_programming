@@ -7,7 +7,7 @@
  * @argv: arguments value
  * Return: 0 (Sucess)
 */
-int main(int argc, char **argv)
+int main(int argc, char *argv[])
 {
 	int result;
 	char *arv;
