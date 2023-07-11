@@ -8,7 +8,7 @@ int s_length(char *str);
 
 char **strtow(char *str)
 {
-	int i, j, k, n = 0, wc = 0;
+	int i, j, k, l, n = 0, wc = 0;
 	char **w;
 
 	if (str == NULL || *str == '\0')
