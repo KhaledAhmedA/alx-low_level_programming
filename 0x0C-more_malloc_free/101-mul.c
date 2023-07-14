@@ -1,88 +1,108 @@
 #include "main.h"
 
-void _puts(char *s);
-void _print_int(unsigned long int n);
-int _atoi(const char *str);
-
 /**
- * main - Entry point multiplication args
- * @argc: length of agruments
- * @argv: array of values
- * Return: Always 0 (Sucess)
-*/
-int main(int argc, char const *argv[])
+ * _isdigit - checks if character is digit
+ * @c: the character to check
+ * Return: 1 if digit, 0 otherwise
+ */
+int _isdigit(int c)
 {
-	(void)argc;
-
-	if (argc != 3)
-	{
-		_puts("Error");
-		exit(98);
-	}
-
-	_print_int(_atoi(argv[1]) * _atoi(argv[2]));
-	_putchar('\n');
-
-	return (0);
+	return (c >= '0' && c <= '9');
 }
 
 /**
- * _puts - function print string followed new line
- * @s: pointer of string (arr of chars)
- * Return: not return any value
-*/
-void _puts(char *s)
+ * _strlen - returns the length of a string
+ * @s: the string whose length to check
+ * Return: integer length of string
+ */
+int _strlen(char *s)
 {
 	int i = 0;
 
-	while (s[i])
-	{
-		_putchar(s[i]);
+	while (*s++)
 		i++;
-	}
+	return (i);
 }
 
 /**
- * _atoi - function convert string to int
- * @str: array of chars
- * Return: int from converted string
-*/
-int _atoi(const char *str)
+ * big_multiply - multiply two big number strings
+ * @s1: the first big number string
+ * @s2: the second big number string
+ * Return: the product big number string
+ */
+char *big_multiply(char *s1, char *s2)
 {
-	int positive = 1;
-	unsigned long int i, res = 0, fnum;
+	char *r;
+	int l1, l2, a, b, c, x;
 
-	for (fnum = 0; !(str[fnum] >= 48 && str[fnum] <= 57); fnum++)
+	l1 = _strlen(s1);
+	l2 = _strlen(s2);
+	r = malloc(a = x = l1 + l2);
+	if (!r)
+		printf("Error\n"), exit(98);
+	while (a--)
+		r[a] = 0;
+
+	for (l1--; l1 >= 0; l1--)
 	{
-		if (str[fnum] == '-')
+		if (!_isdigit(s1[l1]))
 		{
-			positive *= -1;
+			free(r);
+			printf("Error\n"), exit(98);
 		}
-	}
+		a = s1[l1] - '0';
+		c = 0;
 
-	for (i = fnum; str[i] >= 48 && str[i] <= 57; i++)
-	{
-		res *= 10;
-		res += (str[i] - 48);
-	}
+		for (l2 = _strlen(s2) - 1; l2 >= 0; l2--)
+		{
+			if (!_isdigit(s2[l2]))
+			{
+				free(r);
+				printf("Error\n"), exit(98);
+			}
+			b = s2[l2] - '0';
 
-	return (positive * res);
+			c += r[l1 + l2 + 1] + (a * b);
+			r[l1 + l2 + 1] = c % 10;
+
+			c /= 10;
+		}
+		if (c)
+			r[l1 + l2 + 1] += c;
+	}
+	return (r);
 }
 
-/**
- * _print_int - function print int
- * @n: given int
- * Return: not return any value
-*/
-void _print_int(unsigned long int n)
-{
-	unsigned long int division = 1, i, res;
 
-	for (i = 0; n / division > 9; i++, division *= 10)
-		;
-	for (; division >= 1; n %= division, division /= 10)
+/**
+ * main - multiply two big number strings
+ * @argc: the number of arguments
+ * @argv: the argument vector
+ * Return: Always 0 on success.
+ */
+int main(int argc, char **argv)
+{
+	char *r;
+	int a, c, x;
+
+	if (argc != 3)
+		printf("Error\n"), exit(98);
+
+	x = _strlen(argv[1]) + _strlen(argv[2]);
+	r = big_multiply(argv[1], argv[2]);
+	c = 0;
+	a = 0;
+	while (c < x)
 	{
-		res = n / division;
-		_putchar('0' + res);
+		if (r[c])
+			a = 1;
+		if (a)
+			_putchar(r[c] + '0');
+		c++;
 	}
+	if (!a)
+		_putchar('0');
+	_putchar('\n');
+	free(r);
+	return (0);
 }
