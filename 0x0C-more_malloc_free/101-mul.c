@@ -56,7 +56,9 @@ int _atoi(const char *str)
 	for (fnum = 0; !(str[fnum] >= 48 && str[fnum] <= 57); fnum++)
 	{
 		if (str[fnum] == '-')
+		{
 			positive *= -1;
+		}
 	}
 
 	for (i = fnum; str[i] >= 48 && str[i] <= 57; i++)
