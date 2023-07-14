@@ -1,8 +1,8 @@
 #include "main.h"
 
 void _puts(char *s);
-int _atoi(const char *str);
 void _print_int(unsigned long int n);
+int _atoi(const char *str);
 
 /**
  * main - Entry point multiplication args
