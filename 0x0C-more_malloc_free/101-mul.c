@@ -33,7 +33,7 @@ int main(int argc, char const *argv[])
 */
 void _puts(char *s)
 {
-	int i;
+	int i = 0;
 
 	while (s[i])
 	{
@@ -50,9 +50,8 @@ void _puts(char *s)
 int _atoi(const char *str)
 {
 	int positive = 1;
-	unsigned long int i, res, fnum;
+	unsigned long int i, res = 0, fnum;
 
-	res = 0;
 	for (fnum = 0; !(str[fnum] >= 48 && str[fnum] <= 57); fnum++)
 	{
 		if (str[fnum] == '-')
