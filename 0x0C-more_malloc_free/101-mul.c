@@ -53,7 +53,7 @@ int _atoi(const char *str)
 	unsigned long int i, res, fnum;
 
 	res = 0;
-	for (fnum == 0; !(str[fnum] >= 48 && str[fnum] <= 57); fnum++)
+	for (fnum = 0; !(str[fnum] >= 48 && str[fnum] <= 57); fnum++)
 	{
 		if (str[fnum] == '-')
 			positive *= -1;
