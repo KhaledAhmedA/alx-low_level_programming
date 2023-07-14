@@ -1,88 +1,124 @@
 #include "main.h"
-
-void _puts(char *s);
-void _print_int(unsigned long int n);
-int _atoi(const char *str);
+#include <ctype.h>
 
 /**
- * main - Entry point multiplication args
- * @argc: length of agruments
- * @argv: array of values
- * Return: Always 0 (Sucess)
-*/
-int main(int argc, char const *argv[])
+ * _is_zero - determines if any number is zero
+ * @argv: argument vector.
+ *
+ * Return: no return.
+ */
+void _is_zero(char *argv[])
 {
-	(void)argc;
+	int i, isn1 = 1, isn2 = 1;
 
-	if (argc != 3)
+	for (i = 0; argv[1][i]; i++)
+		if (argv[1][i] != '0')
+		{
+			isn1 = 0;
+			break;
+		}
+
+	for (i = 0; argv[2][i]; i++)
+		if (argv[2][i] != '0')
+		{
+			isn2 = 0;
+			break;
+		}
+
+	if (isn1 == 1 || isn2 == 1)
 	{
-		_puts("Error ");
-		exit(98);
+		printf("0\n");
+		exit(0);
 	}
-
-	_print_int(_atoi(argv[1]) * _atoi(argv[2]));
-	_putchar('\n');
-
-	return (0);
 }
 
 /**
- * _puts - function print string followed new line
- * @s: pointer of string (arr of chars)
- * Return: not return any value
-*/
-void _puts(char *s)
+ * _initialize_array - set memery to zero in a new array
+ * @ar: char array.
+ * @lar: length of the char array.
+ *
+ * Return: pointer of a char array.
+ */
+char *_initialize_array(char *ar, int lar)
 {
 	int i = 0;
 
-	while (s[i])
-	{
-		_putchar(s[i]);
-		i++;
-	}
+	for (i = 0; i < lar; i++)
+		ar[i] = '0';
+	ar[lar] = '\0';
+	return (ar);
 }
 
 /**
- * _atoi - function convert string to int
- * @str: array of chars
- * Return: int from converted string
-*/
-int _atoi(const char *str)
+ * _checknum - determines length of the number
+ * and checks if number is in base 10.
+ * @argv: arguments vector.
+ * @n: row of the array.
+ *
+ * Return: length of the number.
+ */
+int _checknum(char *argv[], int n)
 {
-	int positive = 1;
-	unsigned long int i, res = 0, fnum;
+	int ln;
 
-	for (fnum = 0; !(str[fnum] >= 48 && str[fnum] <= 57); fnum++)
-	{
-		if (str[fnum] == '-')
+	for (ln = 0; argv[n][ln]; ln++)
+		if (!isdigit(argv[n][ln]))
 		{
-			positive *= -1;
+			printf("Error\n");
+			exit(98);
+		}
+
+	return (ln);
+}
+
+/**
+ * main - Entry point.
+ * program that multiplies two positive numbers.
+ * @argc: number of arguments.
+ * @argv: arguments vector.
+ *
+ * Return: 0 - success.
+ */
+int main(int argc, char *argv[])
+{
+	int ln1, ln2, lnout, add, addl, i, j, k, ca;
+	char *nout;
+
+	if (argc != 3)
+		printf("Error\n"), exit(98);
+	ln1 = _checknum(argv, 1), ln2 = _checknum(argv, 2);
+	_is_zero(argv), lnout = ln1 + ln2, nout = malloc(lnout + 1);
+	if (nout == NULL)
+		printf("Error\n"), exit(98);
+	nout = _initialize_array(nout, lnout);
+	k = lnout - 1, i = ln1 - 1, j = ln2 - 1, ca = addl = 0;
+	for (; k >= 0; k--, i--)
+	{
+		if (i < 0)
+		{
+			if (addl > 0)
+			{
+				add = (nout[k] - '0') + addl;
+				if (add > 9)
+					nout[k - 1] = (add / 10) + '0';
+				nout[k] = (add % 10) + '0';
+			}
+			i = ln1 - 1, j--, addl = 0, ca++, k = lnout - (1 + ca);
+		}
+		if (j < 0)
+		{
+			if (nout[0] != '0')
+				break;
+			lnout--;
+			free(nout), nout = malloc(lnout + 1), nout = _initialize_array(nout, lnout);
+			k = lnout - 1, i = ln1 - 1, j = ln2 - 1, ca = addl = 0;
+		}
+		if (j >= 0)
+		{
+			add = ((argv[1][i] - '0') * (argv[2][j] - '0')) + (nout[k] - '0') + addl;
+			addl = add / 10, nout[k] = (add % 10) + '0';
 		}
 	}
-
-	for (i = fnum; str[i] >= 48 && str[i] <= 57; i++)
-	{
-		res *= 10;
-		res += (str[i] - 48);
-	}
-
-	return (positive * res);
-}
-
-/**
- * _print_int - function print int
- * @n: given int
- * Return: not return any value
-*/
-void _print_int(unsigned long int n)
-{
-	unsigned long int division = 1, i, res;
-
-	for (i = 0; n / division > 9; i++, division *= 10)
-		;
-	for (; division >= 1; n %= division, division /= 10)
-	{
-		res = n / division;
-		_putchar('0' + res);
-	}
+	printf("%s\n", nout);
+	return (0);
 }
