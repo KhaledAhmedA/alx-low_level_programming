@@ -2,7 +2,7 @@
 #define DOG_H
 
 /**
- * dog - is a struct type
+ * struct dog - is a struct type
  * @name: string or pointer to char
  * @age: float
  * @owner: pointer to char
