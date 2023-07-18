@@ -1,50 +1,83 @@
 #include "dog.h"
 
+char *_strcpy(char *dest, char *src);
+int _strlen(const char *s);
+
 /**
- * new_dog - function creates new dog from struct type
+ * new_dog - function creates a new dog
  * @name: name
  * @age: age
  * @owner: owner
- * Return: struct of new dog or NULL
+ * Return: new dog struct of NULL
 */
 
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	dog_t *dog_c;
-	int i, namelen, ownerlen;
 
-	dog_c = malloc(sizeof(*dog_c));
-	if (dog_c == NULL || !(name) || !(owner))
+	if (!name || age < 0 || !owner)
+		return (NULL);
+
+	dog_c = (dog_t *) malloc(sizeof(dog_c));
+
+	if (dog_c == NULL)
+		return (NULL);
+
+	dog_c->name = malloc(sizeof(char) * (_strlen(name) + 1));
+
+	if (dog_c->name == NULL)
 	{
 		free(dog_c);
 		return (NULL);
 	}
 
-	for (namelen; name[namelen]; namelen++)
-		;
-	for (ownerlen; owner[ownerlen]; ownerlen++)
-		;
+	dog_c->owner = malloc(sizeof(char) * (_strlen(owner) + 1));
 
-	dog_c->name = malloc(namelen + 1);
-	dog_c->owner = malloc(ownerlen + 1);
-
-	if (!(dog_c->name) || !(dog_c->owner))
+	if (dog_c->owner == NULL)
 	{
 		free(dog_c->name);
-		free(dog_c->owner);
 		free(dog_c);
 		return (NULL);
 	}
 
-	for (i = 0; i < namelen; i++)
-		dog_c->name[i] = name[i];
-
-	dog_c->name[i] = '\0';
+	dog_c->name = _strcpy(dog_c->name, name);
 	dog_c->age = age;
-
-	for (i = 0; i < ownerlen; i++)
-		dog_c->owner[i] = owner[i];
-	dog_c->owner[i] = '\0';
+	dog_c->owner = _strcpy(dog_c->owner, owner);
 
 	return (dog_c);
+}
+
+/**
+ * _strlen - function calc string length
+ * @s: given string
+ * Return: num of length
+*/
+
+int _strlen(const char *s)
+{
+	int len = 0;
+
+	while (*s++)
+	{
+		len++;
+	}
+	return (len);
+}
+
+/**
+ * _strcpy - function copry string
+ * @dest: destnation string
+ * @src: source of string
+ * Return: arr of chars
+*/
+
+char *_strcpy(char *dest, char *src)
+{
+	int i;
+
+	for (i = 0; src[i]; i++)
+		dest[i] = src[i];
+	dest[i] = '\0';
+
+	return (dest);
 }
