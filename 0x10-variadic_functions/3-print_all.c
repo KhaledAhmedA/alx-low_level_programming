@@ -8,6 +8,7 @@ void format_string(char *separator, va_list vlist);
 /**
  * print_all - function print any passed argus
  * @format: the format of argus to string
+ * Return: not return any value
 */
 void print_all(const char * const format, ...)
 {
@@ -45,6 +46,7 @@ void print_all(const char * const format, ...)
  * format_char - function for string format
  * @separator: separator
  * @vlist: argus pointer
+ * Return: not return any value
 */
 void format_char(char *separator, va_list vlist)
 {
@@ -55,6 +57,7 @@ void format_char(char *separator, va_list vlist)
  * format_int - function for int format
  * @separator: separator
  * @vlist: argus pointer
+ * Return: not return any value
 */
 void format_int(char *separator, va_list vlist)
 {
@@ -65,6 +68,7 @@ void format_int(char *separator, va_list vlist)
  * format_float - function for float format
  * @separator: separator
  * @vlist: argus pointer
+ * Return: not return any value
 */
 void format_float(char *separator, va_list vlist)
 {
@@ -75,6 +79,7 @@ void format_float(char *separator, va_list vlist)
  * format_string - function for string format
  * @separator: separator
  * @vlist: argus pointer
+ * Return: not return any value
 */
 void format_string(char *separator, va_list vlist)
 {
