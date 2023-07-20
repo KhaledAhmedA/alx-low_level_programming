@@ -81,8 +81,8 @@ void format_string(char *separator, va_list vlist)
 	char *s = va_arg(vlist, char *);
 
 	switch ((int)(!s))
-	case 1:
-		str = "(nil)";
+		case 1:
+			s = "(nil)";
 
 	printf("%s%s", separator, s);
 }
