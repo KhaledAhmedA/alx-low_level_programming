@@ -5,6 +5,7 @@
  * @separator: given separator
  * @n: nums passed to function
  * @...: integers to print
+ * Return: not return any value
 */
 void print_numbers(const char *separator, const unsigned int n, ...)
 {
