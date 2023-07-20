@@ -6,7 +6,7 @@ void format_float(char *separator, va_list vlist);
 void format_string(char *separator, va_list vlist);
 
 /**
- * print all - function print any passed argus
+ * print_all - function print any passed argus
  * @format: the format of argus to string
 */
 void print_all(const char * const format, ...)
