@@ -18,7 +18,7 @@ int sum_them_all(const unsigned int n, ...)
 	va_start(ptr, n);
 	while (i--)
 		sum += va_arg(ptr, int);
-	va_end(ptr);
 
+	va_end(ptr);
 	return (sum);
 }
