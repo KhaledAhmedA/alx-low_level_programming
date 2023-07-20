@@ -13,7 +13,7 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 	int i;
 
 	i = n;
-	if(!n)
+	if (!n)
 	{
 		printf("\n");
 		return;
