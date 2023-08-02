@@ -1,6 +1,6 @@
 #include "lists.h"
 
-const listint_t **_realloc(const listint_t **list, size_t size, const listint_t *newList);
+const listint_t **rc(const listint_t **list, size_t sz, const listint_t *new);
 
 /**
  * print_listint_safe - function print listint_t linked list
@@ -25,7 +25,7 @@ size_t print_listint_safe(const listint_t *head)
 			}
 		}
 		num++;
-		list = _realloc(list, num, head);
+		list = rc(list, num, head);
 		printf("[%p] %d\n", (void *)head, head->n);
 		head = head->next;
 	}
@@ -35,18 +35,18 @@ size_t print_listint_safe(const listint_t *head)
 }
 
 /**
- * _realloc - function re-allocate for arr of pointers
+ * rc - function re-allocate for arr of pointers
  * @list: old list to append
- * @size: size of new list and always more then old one
- * @newList: new node to append
+ * @sz: size of new list and always more then old one
+ * @new: new node to append
  * Return: pointer to new list
 */
-const listint_t **_realloc(const listint_t **list, size_t size, const listint_t *newList)
+const listint_t **rc(const listint_t **list, size_t sz, const listint_t *new)
 {
 	const listint_t	**reList;
 	size_t i;
 
-	reList = malloc(size * sizeof(listint_t *));
+	reList = malloc(sz * sizeof(listint_t *));
 
 	if (reList == NULL)
 	{
@@ -54,9 +54,9 @@ const listint_t **_realloc(const listint_t **list, size_t size, const listint_t 
 		exit(98);
 	}
 
-	for (i = 0; i < size - 1; i++)
+	for (i = 0; i < sz - 1; i++)
 		reList[i] = list[i];
-	reList[i] = newList;
+	reList[i] = new;
 	free(list);
 
 	return (reList);
