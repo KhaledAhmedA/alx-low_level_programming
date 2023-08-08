@@ -5,6 +5,7 @@
 #define ERR_WR "Error: Can't write to %s\n"
 #define ERR_CLOSE "Error: Can't close fd %d\n"
 #define PERM (S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH)
+#define BUF_SIZE 1024
 
 /**
  * main - entry point  make handle of file operations
@@ -17,7 +18,7 @@ int main(int arc, int **arg)
 	int from_fd = 0;
 	int to_fd = 0;
 	ssize_t i;
-	char buf[1024];
+	char buf[BUF_SIZE];
 
 	if (arc != 3)
 	{
@@ -33,7 +34,7 @@ int main(int arc, int **arg)
 	if (to_fd == -1)
 		dprintf(STDERR_FILENO, ERR_WR, arg[2]), exit(99);
 
-	while ((i = read(from_fd, buf, 1024)) > 0)
+	while ((i = read(from_fd, buf, BUF_SIZE)) > 0)
 		if (write(to_fd, buf, i) != i)
 			dprintf(STDERR_FILENO, ERR_WR, arg[2]), exit(99);
 	if (i == -1)
